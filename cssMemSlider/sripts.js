@@ -9,9 +9,15 @@ let countMerg =0;
 const SLIDES = document.getElementById("slides");
 const CIRCLE = document.querySelectorAll(".circle");
 const CIRCLES = document.querySelectorAll(".circles");
+function blink(val){
+  val.style.backgroundColor = "yellow";
+    setTimeout( () => val.style.backgroundColor = "", 150 );
+}
+
 CIRCLES.forEach( ( value ) => {
   value.addEventListener("mouseover",
                        () => { value.lastChild.style.borderColor = "white";
+                       value.style.cursor = "pointer";
 if ( !value.lastChild.classList.contains( "active" ) ){
  value.lastChild.style.backgroundColor = "white";
 }
@@ -22,6 +28,7 @@ if ( !value.lastChild.classList.contains( "active" ) ){
 CIRCLES.forEach( ( value ) => {
 value.addEventListener("mouseout",
                        () => { 
+                        value.style.cursor = "";
 value.lastChild.style.borderColor = "";
 if( !value.lastChild.classList.contains( "active" ) ){
   value.lastChild.style.backgroundColor = ""
@@ -55,6 +62,7 @@ if ( value.lastChild.classList.contains( "active" ) ){
     SLIDES.style.marginLeft=countMerg+"rem";  
 
   }
+  blink(value.lastChild);
   }
 )
   });
