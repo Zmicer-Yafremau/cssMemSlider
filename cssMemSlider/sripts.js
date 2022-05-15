@@ -37,6 +37,9 @@ value.addEventListener( "click",
 if ( value.lastChild.classList.contains( "active" ) ){
  
    document.querySelector('.memes').style.backgroundImage = "";  
+   document.querySelector( '.memes' ).style.backgroundImage = IMAGE[ +value.lastChild
+    .className
+    .match( /[012345]/ )[0] ]; 
   current = +value.lastChild.className.match( /[012345]/ )[0];
 }
   else {
