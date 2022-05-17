@@ -29,13 +29,11 @@
     width:1rem;
     height:1rem;
     border-radius:1rem;
-    transition:.4s;
+    transition:.2s;
   }
 
-  .active{
-    background-color:black;
-  }
-  
+ 
+
   .wraper{
     width:60rem;
     height:74rem;
@@ -73,20 +71,28 @@
   }
 
   .circles{
+    cursor: pointer;
     height:100%;
     flex-grow:1;
     display:flex;
     justify-content:flex-end;
+    
   
   }
+  .circles:active .circle{
+   
+    transform:scale(1.5);
+  }
+
   
+
   .lowbar_wraper{
     width:25rem;
     overflow:hidden;
   
   }
   
-  .lowbar_wraper > div{
+  #slides{
     width:100rem;
     display:flex;
     margin-left:0;
@@ -96,6 +102,58 @@
   .lowbar_wraper div span{
     display:block;
     width:25rem;
+  }
+
+  #switch_1:checked ~ .memes{
+    background-image:url("./assets/slide0.png")
+  }
+  #switch_2:checked ~ .memes{
+    background-image:url("./assets/slide1.png")
+  }
+  #switch_3:checked ~ .memes{
+    background-image:url("./assets/slide2.png")
+  }
+  #switch_4:checked ~ .memes{
+    background-image:url("./assets/slide3.png")
+  }
+
+    
+  #switch_1:checked ~ .lowbar>.lowbar_wraper>#slides{
+    margin-left: 0;
+  }
+  #switch_2:checked ~ .lowbar>.lowbar_wraper>#slides{
+    margin-left: -25rem;
+  }
+  #switch_3:checked ~ .lowbar>.lowbar_wraper>#slides{
+    margin-left: -50rem;
+  }
+  #switch_4:checked ~ .lowbar>.lowbar_wraper>#slides{
+    margin-left: -75rem;
+  }
+
+  #switch_1:checked ~ .lowbar>.navigation>.circles>.c0{
+    background-color: black;
+    border-color: white;
+  }
+  #switch_2:checked ~ .lowbar>.navigation>.circles>.c1{
+    background-color: black;
+    border-color: white;
+      }
+  #switch_3:checked ~ .lowbar>.navigation>.circles>.c2{
+    background-color: black;
+    border-color: white;
+          }
+  #switch_4:checked ~ .lowbar>.navigation>.circles>.c3{
+    background-color: black;
+    border-color: white;
+              }
+
+  .circles:hover .circle{
+     background-color: white;
+       }
+
+  input{
+    display:none;
   }
   
   @media ( max-width:57.1rem ) and ( min-width:35.1rem ){
